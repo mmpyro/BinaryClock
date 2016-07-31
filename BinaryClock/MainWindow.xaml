@@ -9,21 +9,9 @@
         DataContext="{Binding Clock, Source={StaticResource Locator}}" Closed="Window_Closed">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Label Width="180" Grid.Column="0" MouseLeftButtonDown="Border_MouseDown"/>
-            <Border MouseDown="Border_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="2" CornerRadius="5" Width="20" Height="18">
-                    <Label Cursor="Arrow" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" 
-                       FontWeight="Bold" Foreground="White" Content="X" Padding="0" Margin="4,-1,2,1" Width="10" Height="16"/>
-            </Border>
-        </Grid>
-        <Grid Grid.Row="1">
+        <Grid MouseLeftButtonDown="Border_MouseDown" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Grid.Row="0">
             <!--Hours-->
             <local:ArcControl Width="200" Height="200"
                                   Radius="100" StartArc="-130" EndArc="210" StrokeColor="Gray" StrokeThicness="4" />
@@ -41,6 +29,11 @@
                                   Radius="89" StartArc="{Binding MinStartArc, Mode=TwoWay}" EndArc="0" StrokeColor="White" StrokeThicness="2" />
             <!--Content-->
             <local:ClockControl Width="130" Height="120" CurrentTime="{Binding Time, Mode=TwoWay}"/>
+
+            <Border MouseDown="Border_MouseLeftButtonDown" HorizontalAlignment="Right" BorderBrush="White" BorderThickness="2" CornerRadius="5" Width="20" Height="18" Margin="0,3,3,199">
+                <Label Cursor="Arrow" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" 
+                       FontWeight="Bold" Foreground="White" Content="X" Padding="0" Margin="4,-1,2,1" Width="10" Height="16"/>
+            </Border>
         </Grid>
     </Grid>
 </Window>

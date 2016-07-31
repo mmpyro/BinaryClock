@@ -6,7 +6,7 @@ namespace BinaryClock
     {
         static Locator()
         {
-            Clock = new ClockVm(new DateTime(2016,7,31,15,47,11));
+            Clock = new ClockVm(DateTime.Now);
         }
 
         public static void Close()
