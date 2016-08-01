@@ -72,8 +72,6 @@ namespace BinaryClock
         {
             if (Radius <= 0)
                 throw new ArgumentException("Radius must be greater then 0");
-            else if( StartArc >= EndArc)
-                throw new ArgumentException("StartArc must be less then EndArc");
         }
 
         private double Convert(int v)
@@ -107,6 +105,7 @@ namespace BinaryClock
             {
 
                 SetValue(EndArcProperty, value);
+                Draw();
             }
         }
 
